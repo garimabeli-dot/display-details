@@ -3,6 +3,8 @@ body{
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+    opacity: 0.8;
+    font-family: monospace;
 }
 .App{
     text-align: center;
@@ -15,7 +17,8 @@ body{
     display: inline-block;
 }
 .list-group-item {
-    background-color: #fff;
+    background-color: floralwhite;
+    opacity: 0.9;
 }
 .detail-text {
     width: 100%;
@@ -24,7 +27,8 @@ body{
     padding: 10px 15px;
     margin-bottom: -1px;
     border: 1px solid #ddd;
-    background-color: #fff;
+    background-color: floralwhite;
+    opacity: 0.9;
   }
   .detail-item {
       padding: inherit;
@@ -35,4 +39,26 @@ body{
     padding: inherit;
   }
 
+  .btn {
+      width:25%;
+      background-color: floralwhite;
+      opacity: 0.9;
+  }
+
+  .card-title {
+    margin-bottom: 2px;
+  }
+
+  .header-detail {
+    background-color: floralwhite;
+    height: 20px;
+    width: 40%;
+    text-align: center;
+    position: relative;
+    display: inline-table;
+    margin-bottom: 22px;
+    opacity: 0.8;
+}
+
+  
   
