@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/index.css';
+import { Card, ListGroup } from 'react-bootstrap';
 
 class Details extends Component {
     constructor(props) {
@@ -17,7 +17,8 @@ class Details extends Component {
         var email = '',
             firstName = '',
             lastName = '',
-            avatar = '';
+            avatar = '',
+            detailsAvailable = false;
 
         this.props.userDetails.map(function (item) {
             if (item.id == id) {
@@ -25,6 +26,7 @@ class Details extends Component {
                 firstName = item.first_name;
                 lastName = item.last_name;
                 avatar = item.avatar;
+                detailsAvailable = true;
             }
         })
         this.setState({
@@ -32,45 +34,53 @@ class Details extends Component {
             firstName: firstName,
             lastName: lastName,
             avatar: avatar,
+            detailsAvailable
         })
     }
     render() {
         return (
             <div className="container">
                 <div className="col-md-5">
-                     <h4>Names</h4>
-                    <ul className="list-group">
-                        {
-                            this.props.userDetails.map(function (item, index) {
-                                return (
-                                    <li key={item.id} className="list-group-item">
-                                        <div
-                                            className="list-item click-button"
-                                            onClick={() => this.showDetails(item.id)}
-                                        >
-                                            {item.first_name} {item.last_name}
-                                        </div>
+                    <Card>
+                        <ListGroup>
+                            {
+                                this.props.userDetails.map(function (item, index) {
+                                    return (
+                                        <ListGroup.Item key={item.id}>
+                                            <div
+                                                className="list-item click-button"
+                                                onClick={() => this.showDetails(item.id)}
+                                            >
+                                                {item.first_name} {item.last_name}
+                                            </div>
 
-                                    </li>);
-                            }.bind(this))
-                        }
-                    </ul> 
+                                        </ListGroup.Item>);
+                                }.bind(this))
+                            }
+                        </ListGroup>
+                    </Card>
+
+
                 </div>
                 <div className="col-md-2"></div>
                 <div className="col-md-5">
-                         <div>
-                             <h4>Details</h4>
-                             <div className="detail-text">                                
-                                 <div className="detail-item">Name :{this.state.firstName} {this.state.lastName}</div>
-                                 <div className="detail-item">Email Id : {this.state.email}</div>
-                                 <div className="detail-img">
-                                     <img
-                                         src={this.state.avatar}
-                                         alt={this.state.email}
-                                     />
-                                 </div>
-                             </div>
-                         </div>
+                    {this.state.detailsAvailable ?  
+                        <Card className="detail-text">                            
+                            <Card.Body>
+                                <Card.Title>Profile</Card.Title>
+                                <Card.Text className="detail-item">
+                                    Name :{this.state.firstName} {this.state.lastName} <br></br>
+                                    Email Id : {this.state.email}
+                                </Card.Text>
+                            </Card.Body>
+                            <Card.Img 
+                                className="detail-img"
+                                variant="bottom" 
+                                src={this.state.avatar}
+                                alt={this.state.firstName}
+                                 />                           
+                        </Card>
+                        : ""}
                 </div>
             </div>
         )
