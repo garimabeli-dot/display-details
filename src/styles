@@ -1,0 +1,38 @@
+body{
+    background-image: url("../assets/background.jpg");
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.App{
+    text-align: center;
+    padding: 5%;
+}
+.click-button{
+    cursor: pointer;
+}
+.list-item{
+    display: inline-block;
+}
+.list-group-item {
+    background-color: #fff;
+}
+.detail-text {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
+  .detail-item {
+      padding: inherit;
+  }
+  .detail-img {
+    object-fit: cover;
+    border-radius: 2px;
+    padding: inherit;
+  }
+
+  
